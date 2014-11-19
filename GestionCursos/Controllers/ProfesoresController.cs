@@ -12,7 +12,8 @@ namespace GestionCursos.Controllers
         // GET: Profesores
         public ActionResult Index()
         {
-            return View(RepositorioProfesor.Get());
+            var data = RepositorioProfesor.Get();
+            return View(data);
         }
 
         public ActionResult NuevoProfesor()
@@ -26,7 +27,7 @@ namespace GestionCursos.Controllers
             if (ModelState.IsValid)
             {
                 RepositorioProfesor.Add(model);
-                RedirectToAction("Index");
+               return RedirectToAction("Index");
             }
             return View(model);
         }

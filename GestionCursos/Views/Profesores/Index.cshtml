@@ -1,0 +1,16 @@
+﻿@model  IEnumerable<GestionCursos.Models.ViewModels.ProfesorViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@foreach (var item in Model)
+{
+    <div class="tile">
+        Nombre: @item.nombre <br/>
+        Experiencia: @item.experiencia <br/>
+    </div>
+}
