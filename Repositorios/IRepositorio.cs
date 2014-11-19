@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Repositorios
 {
-    interface IRepositorio<TViewModel,TEntidad>
+    public interface IRepositorio<TViewModel,TEntidad>
     {
         TViewModel Add(TViewModel modelo);
         int Borrar(int id);
