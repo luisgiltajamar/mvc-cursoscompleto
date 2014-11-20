@@ -149,6 +149,7 @@
     <Compile Include="Models\Profesor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewForms\DialogoViewForm.cs" />
     <Compile Include="Models\ViewModels\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -176,6 +177,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Profesores\Index.cshtml" />
+    <Content Include="Views\Profesores\NuevoProfesor.cshtml" />
+    <Content Include="Views\Shared\_ModalPredeterminado.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

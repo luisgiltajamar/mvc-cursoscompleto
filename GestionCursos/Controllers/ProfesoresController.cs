@@ -22,6 +22,7 @@ namespace GestionCursos.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult NuevoProfesor(ProfesorViewModel model)
         {
             if (ModelState.IsValid)

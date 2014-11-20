@@ -1,0 +1,32 @@
+﻿@using GestionCursos.Models.ViewForms
+@model GestionCursos.Models.ViewModels.ProfesorViewModel
+
+@{
+    ViewBag.Title = "NuevoProfesor";
+}
+
+<h2>NuevoProfesor</h2>
+
+@using (Html.BeginForm())
+{
+   
+    
+    @Html.AntiForgeryToken()
+    
+    @Html.LabelFor(o=>o.nombre)
+    <input type="text" name="nombre" id="nombre"/>
+    <br/>
+    @Html.LabelFor(o=>o.experiencia)
+    @Html.EditorFor(o=>o.experiencia)
+    <br/>
+    <button>Enviar</button>
+    @Html.ValidationSummary(false)
+}
+
+@Html.Partial("_ModalPredeterminado",new DialogoViewForm()
+{
+    IdDialogo = "Alerta1",
+    Titulo = "Insertando nuevo registro",
+    Texto = "Por favor rellena todos los campos y punsa en enviar"
+    
+})
