@@ -18,6 +18,7 @@ namespace GestionCursos.Controllers
 
         public ActionResult NuevoProfesor()
         {
+            ViewBag.errores = false;
             return View(new ProfesorViewModel());
         }
 
@@ -30,6 +31,7 @@ namespace GestionCursos.Controllers
                 RepositorioProfesor.Add(model);
                return RedirectToAction("Index");
             }
+            ViewBag.errores = true;
             return View(model);
         }
 

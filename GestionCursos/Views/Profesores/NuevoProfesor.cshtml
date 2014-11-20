@@ -20,13 +20,25 @@
     @Html.EditorFor(o=>o.experiencia)
     <br/>
     <button>Enviar</button>
-    @Html.ValidationSummary(false)
+    @*@Html.ValidationSummary(false)*@
 }
 
 @Html.Partial("_ModalPredeterminado",new DialogoViewForm()
 {
     IdDialogo = "Alerta1",
     Titulo = "Insertando nuevo registro",
-    Texto = "Por favor rellena todos los campos y punsa en enviar"
+    Texto = @Html.ValidationSummary(false).ToString()
     
 })
+
+<script>
+
+    (function() {
+        var err="@ViewBag.errores";
+
+        if(err=="True")
+           $("#Alerta1").modal();
+        
+    })();
+
+</script>
