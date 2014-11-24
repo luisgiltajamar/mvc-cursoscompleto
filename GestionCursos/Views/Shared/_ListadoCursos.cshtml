@@ -1,0 +1,13 @@
+﻿@model IEnumerable<GestionCursos.Models.ViewModels.CursoViewModel>
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.nombre</td>
+            <td>@String.Format("{0:d}",item.inicio)</td>
+        </tr>
+    }
+    
+
+</table>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using GestionCursos.Models;
 using GestionCursos.Models.ViewModels;
+using GestionCursos.Repositorios;
 using Repositorios;
 
 namespace GestionCursos.Controllers
@@ -29,7 +30,19 @@ namespace GestionCursos.Controllers
             }
 
         }
+        private RepositorioCursos _repositorioCursos;
 
+        public RepositorioCursos RepositorioCursos
+        {
+            get
+            {
+                if (_repositorioCursos == null)
+                    _repositorioCursos =
+                        new RepositorioCursos(_db);
+                return _repositorioCursos;
+            }
+
+        }
         #endregion
 
         public BaseController()
