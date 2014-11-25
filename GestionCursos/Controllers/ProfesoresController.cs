@@ -41,7 +41,7 @@ namespace GestionCursos.Controllers
 
             return PartialView("_ListadoCursos", data);
         }
-
+         
         
         public ActionResult CursosDelProfesorJson(int id)
         {
