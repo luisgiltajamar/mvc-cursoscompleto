@@ -14,6 +14,7 @@
         Nombre: @item.nombre <br/>
         Experiencia: @item.experiencia <br/>
         <a href="#" onclick="verCursos(@item.idProfesor)">Cursos</a>
+        <a href="#" onclick="verCursosJSon(@item.idProfesor)">Cursos Json</a>
     </div>
 }
 
@@ -43,5 +44,22 @@
 
             $("#dialogo").modal();
         });
+    }
+    function verCursosJSon(id) {
+        var url = "/profesores/CursosDelProfesorJson/" + id;
+        
+       $.get(url, function(res) {
+
+           var datos = "<ul>";
+           for (var i = 0; i < res.length; i++) {
+
+               datos += "<li>" + res[i].nombre + "</li>";
+
+           }
+           datos += "</ul>";
+           $("#contenidoDialogo").html(datos);
+           $("#dialogo").modal();
+
+       });
     }
 </script>

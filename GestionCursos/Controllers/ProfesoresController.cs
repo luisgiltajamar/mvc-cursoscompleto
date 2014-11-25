@@ -41,5 +41,13 @@ namespace GestionCursos.Controllers
 
             return PartialView("_ListadoCursos", data);
         }
+
+        
+        public ActionResult CursosDelProfesorJson(int id)
+        {
+            var data = RepositorioCursos.GetPorProfesor(id);
+
+            return Json(data,JsonRequestBehavior.AllowGet);
+        }
     }
 }
