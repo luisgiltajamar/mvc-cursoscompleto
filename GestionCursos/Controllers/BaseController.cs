@@ -30,6 +30,19 @@ namespace GestionCursos.Controllers
             }
 
         }
+        private IRepositorio<AulaViewModel, Aula> _repositorioAula;
+
+        public IRepositorio<AulaViewModel, Aula> RepositorioAula
+        {
+            get
+            {
+                if (_repositorioAula == null)
+                    _repositorioAula =
+                        new Repositorio<AulaViewModel, Aula>(_db);
+                return _repositorioAula;
+            }
+
+        }
         private RepositorioCursos _repositorioCursos;
 
         public RepositorioCursos RepositorioCursos

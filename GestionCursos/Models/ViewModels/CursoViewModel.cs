@@ -13,6 +13,8 @@ namespace GestionCursos.Models.ViewModels
         public Nullable<int> profesor { get; set; }
         public System.DateTime inicio { get; set; }
         public int duracion { get; set; }
+        public List<int> idAulas { get; set; }
+
         public Curso ToBaseDatos()
         {
             var model = new Curso()
@@ -33,6 +35,14 @@ namespace GestionCursos.Models.ViewModels
             profesor = model.profesor;
             inicio = model.inicio;
             duracion = model.duracion;
+            try
+            {
+                idAulas = model.Aula.Select(o => o.idAula).ToList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public void UpdateBaseDatos(Curso model)

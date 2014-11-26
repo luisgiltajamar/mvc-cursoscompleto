@@ -19,5 +19,25 @@ namespace GestionCursos.Repositorios
         {
             return Get(o => o.profesor.Value == id);
         }
+
+        public override CursoViewModel Add(CursoViewModel modelo)
+        {
+            var aulas = Context.Set<Aula>().
+                Where(o => modelo.idAulas.Contains(o.idAula));
+
+            var datos = modelo.ToBaseDatos();
+            datos.Aula = aulas.ToList();
+
+            DbSet.Add(datos);
+            Context.SaveChanges();
+
+            modelo.FromBaseDatos(datos);
+            return modelo;
+
+
+            
+
+
+        }
     }
 }
